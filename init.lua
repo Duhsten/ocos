@@ -14,7 +14,10 @@ do
 end
 
 while true do
+  dofile("/bin/update.lua")
+  dofile("/bin/gpu.lua")
   local result, reason = xpcall(require("shell").getShell(), function(msg)
+    
     return tostring(msg).."\n"..debug.traceback()
   end)
   if not result then
